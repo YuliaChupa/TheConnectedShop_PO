@@ -15,5 +15,21 @@ describe(`check header`, () => {
         header.checkLogo();
         header.checkNavigationLinks();
         header.checkSearchButton();
+        header.checkLogo();
+        header.checkNavigationLinks() 
+        header.checkSearchButton() ;
+        header.checkCartButton() ;
+        header.checkStickyHeader() ; 
+        header.checkaccountButton() ;  
+        header.checkHomeButton() ; 
+        header.checkNewInButton() ;  
+        header.checkCollectionsButton() ;  
+        header.checkPersonalButton() ;    
+        header.checkBusinessesButton() ;       
+        header.checkTechTalkButton() ;    
+        header.checkAboutUsButton() ;
+        header.checkContactButton() ;   
+        header.checkCallButton()
+        })             
+    
     });
-});
