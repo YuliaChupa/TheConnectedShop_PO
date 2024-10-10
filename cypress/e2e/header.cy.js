@@ -1,9 +1,8 @@
-import { Header } from "../support/pages/Header";
+import { Header } from "../support/pages/header";
 import { HomePage } from "../support/pages/homePage";
 
 describe(`check header`, () => {
-    const homePage = new HomePage();
-    const header = new Header();
+    
 
     beforeEach(() => {
         cy.viewport(1280, 720);
@@ -11,13 +10,12 @@ describe(`check header`, () => {
         cy.on('uncaught:exception', (err, runnable) => { return false; });
     });
 
-    it(`Check header elements`, () => {
+    it
+    (`Check header elements`, () => {    
+        
+        header.checkSearchLink();
         header.checkLogo();
-        header.checkNavigationLinks();
-        header.checkSearchButton();
-        header.checkLogo();
-        header.checkNavigationLinks() 
-        header.checkSearchButton() ;
+        header.checkSearchLink() ;
         header.checkCartButton() ;
         header.checkStickyHeader() ; 
         header.checkaccountButton() ;  
