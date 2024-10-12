@@ -1,9 +1,6 @@
         export class Header {
-            logo = '.Header__LogoLink';
-            mainNavLinks = 'nav[aria-label="Main navigation"] ul.HorizontalList li a';
-            searchButton = 'a[data-action="toggle-search"]';
-            searchInput = 'input[type="search"]';
-            cartButton = 'a[data#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(3) > a-drawer-id="sidebar-cart"]';
+            logo = 'img.Header__LogoImage.Header__LogoImage--primary';
+            cartButton = '#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(3) > a';
             stickyHeader = 'div.Header__Wrapper';
             accountButton = '#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(1) > a';
             homeButton = '#section-header > div > div:nth-child(1) > nav > ul > li.HorizontalList__Item.is-active';
@@ -14,24 +11,13 @@
             techTalkButton = '#section-header > div > div:nth-child(1) > nav > ul > li:nth-child(6) > a';
             aboutUsButton =  '#section-header > div > div:nth-child(1) > nav > ul > li:nth-child(7) > a';
             contactButton = '#section-header > div > div:nth-child(1) > nav > ul > li:nth-child(8) > a';
-            callButton = '#section-header > div > div:nth-child(1) > nav > ul > li.HorizontalList__Item.is-expanded';
+            callButton = '#section-header > div > div:nth-child(1) > nav > ul > li:nth-child(9) > a';
 
             checkLogo() {
                 cy.get(this.logo)
-                    .should('exist')
-                    .and('be.visible');
-            }
-        
-            checkNavigationLinks() {
-                cy.get(this.mainNavLinks)
-                    .should('exist')
-                    .and('be.visible');
-            }
-        
-            checkSearchButton() {
-                cy.get(this.searchButton)
-                    .should('exist')
-                    .and('be.visible');
+                  .should('have.attr', 'src')
+                  .and('include', 'The_Connected_Shop_250x.png');
+            
             }
             checkCartButton() {
                 cy.get(this.cartButton) 
@@ -103,3 +89,5 @@
                
             }    
         }         
+
+        
