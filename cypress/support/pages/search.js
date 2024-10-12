@@ -1,19 +1,22 @@
 export class Search {
-       searchLink = '#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(2) > a';
-       searchBar = 'input.Search__Input.Heading[name="q"]';
+       searchLink = 'a[data-action="toggle-search"]';
+       searchInput = 'input.Search__Input.Heading[name="q"]';
        searchResult = 'span.Heading.Text--subdued.u-h7'
+       wrongSearchResult = ':nth-child(1) > .Segment > .Segment__Content > p'
        
-     
        checkSearchLink() {
-        cy.get(this.searchLink).eq(0)
+        cy.get(this.searchLink).first()
           .should('exist')
           .and('be.visible')
-          .and('have.attr', 'href', '/search')
-          .click();
+          .and('have.attr', 'href', '/search');
+          
       }
-    
-      checkSearchBar() {
-        cy.get(this.searchBar)
+        clickSearchLink() {
+          cy.get(this.searchLink).first()
+          .click();
+        }
+      checkSearchBarAttr() {
+        cy.get(this.searchInput)
           .should('have.attr', 'type', 'search')
           .and('have.attr', 'name', 'q')
           .and('have.attr', 'autocomplete', 'off')
@@ -24,9 +27,9 @@ export class Search {
           .and('have.attr', 'autofocus');
       }
     
-      checkEnterQuery() {
-        cy.get(this.searchBar)
-          .type('Water Leak Detector',{ force: true })
+      checkSearchFill() {
+        cy.get(this.searchInput)
+          .type('Water Leak Detector')
           .should('have.value', 'Water Leak Detector');
       }
     
@@ -38,6 +41,17 @@ export class Search {
           .then((text) => {
             const resultsNumber = parseInt(text);
             expect(resultsNumber).to.be.greaterThan(1);
-          });
-      }
-    }
+          })}
+
+      checkSearcWronghFill() {
+            cy.get(this.searchInput)     
+            .type('W"at?er88')
+            .should('have.value','W"at?er88');
+          }
+
+      checkWrongFillResult() {
+            cy.get(':nth-child(1) > .Segment > .Segment__Content > p').eq(0)
+              .should('have.text','No results could be found')
+     }; 
+     }
+     

@@ -1,7 +1,5 @@
         export class Header {
             logo = 'img.Header__LogoImage.Header__LogoImage--primary';
-            searchLink = 'a[data-action="toggle-search"]';
-            searchInput = 'input[type="search"]';
             cartButton = '#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(3) > a';
             stickyHeader = 'div.Header__Wrapper';
             accountButton = '#section-header > div > div:nth-child(3) > nav > ul > li:nth-child(1) > a';
@@ -19,11 +17,7 @@
                 cy.get(this.logo)
                   .should('have.attr', 'src')
                   .and('include', 'The_Connected_Shop_250x.png');
-            }
-            checkSearchLink() {
-                cy.get(this.searchLink)
-                    .should('exist')
-                    .and('be.visible');
+            
             }
             checkCartButton() {
                 cy.get(this.cartButton) 

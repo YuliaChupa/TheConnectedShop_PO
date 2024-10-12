@@ -2,7 +2,8 @@ import { Header } from "../support/pages/header";
 import { HomePage } from "../support/pages/homePage";
 
 describe(`check header`, () => {
-    
+    const homePage = new HomePage();
+    const header = new Header();  
 
     beforeEach(() => {
         cy.viewport(1280, 720);
@@ -12,10 +13,7 @@ describe(`check header`, () => {
 
     it
     (`Check header elements`, () => {    
-        
-        header.checkSearchLink();
         header.checkLogo();
-        header.checkSearchLink() ;
         header.checkCartButton() ;
         header.checkStickyHeader() ; 
         header.checkaccountButton() ;  

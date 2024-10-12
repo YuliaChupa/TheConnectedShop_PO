@@ -1,4 +1,3 @@
-import { Header } from "../support/pages/header";
 import { HomePage } from "../support/pages/homePage";
 import { Search } from "../support/pages/Search";
 
@@ -17,9 +16,8 @@ describe(`check search`, () => {
     it
     (`Check Search`, () => { ;
         search.checkSearchLink(); 
-        search.clickSearchLink()
-        search.checkSearchBarAttr();
-        search.checkSearchFill();   
-        search.checkResult();    
+        search.clickSearchLink();
+        search.checkSearcWronghFill();
+        search.checkWrongFillResult()
       });
     });
